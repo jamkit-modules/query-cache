@@ -7,7 +7,7 @@ const module = (function() {
     function _cache_value(id, params, value, timeout) {
         const cache    = _cache[id]    || (_cache[id]    = {});
         const timeouts = _timeouts[id] || (_timeouts[id] = {});
-        const key = params.join["-"];
+        const key = params.join("-");
 
         cache[key] = value, timeouts[key] = timeout;
 
@@ -17,7 +17,7 @@ const module = (function() {
     function _uncache_value(id, params) {
         if (_cache[id] && Array.isArray(params)) {
             const cache = _cache[id], timeouts = _timeouts[id];
-            const key = params.join["-"];
+            const key = params.join("-");
 
             delete cache[key], delete timeouts[key];
         } else {
@@ -27,21 +27,21 @@ const module = (function() {
 
     function _get_cached_value(id, params) {
         const cache = _cache[id] || {};
-        const key = params.join["-"];
+        const key = params.join("-");
 
         return cache[key];
     }
 
     function _has_cached_value(id, params) {
         const cache = _cache[id] || {};
-        const key = params.join["-"];
+        const key = params.join("-");
 
         return cache.hasOwnProperty(key);
     }
 
     function _is_cache_expired(id, params) {
         const timeouts = _timeouts[id] || {};
-        const key = params.join["-"];
+        const key = params.join("-");
 
         return Date.now() > (timeouts[key] || 0);
     }
