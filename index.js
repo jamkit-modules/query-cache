@@ -49,7 +49,7 @@ const module = (function() {
     function _get_next_timeout(options) {
         return Date.now() + (options["cache-time"] || _default_options["cache-time"]) * 1000;
     }
-    
+
     return {
         get: function(id, query, params, options={}) {
             if (!_has_cached_value(id, params) || _is_cache_expired(id, params)) {
